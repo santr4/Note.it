@@ -2,9 +2,9 @@ import { Navbar } from "./_components/navbar";
 
 const LandingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className="h-full">
       <Navbar />
-      <main>{children}</main>
+      <main className="h-full">{children}</main>
     </div>
   );
 };
