@@ -4,7 +4,7 @@ const LandingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="h-full">
       <Navbar />
-      <main className="h-full">{children}</main>
+      <main className="h-full mt-20">{children}</main>
     </div>
   );
 };
