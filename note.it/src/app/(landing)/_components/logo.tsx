@@ -10,14 +10,9 @@ const lobster = Lobster({
 
 export const Logo = () => {
   return (
-    <div className="p-3 md: flex items-center">
-      <Image
-        src="/175637400_padded_logo.png"
-        height="40"
-        width="40"
-        alt="logo"
-      />
-      <p className={cn("m-1", lobster.className)}>Note.it</p>
+    <div className="pl-3 md: flex flex-col items-center">
+      <Image src="/cover.png" height="90" width="80" alt="logo" />
+      <p className={cn(lobster.className)}>Manage Efficiently</p>
     </div>
   );
 };
