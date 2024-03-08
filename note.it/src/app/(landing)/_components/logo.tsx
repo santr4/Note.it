@@ -11,7 +11,12 @@ const lobster = Lobster({
 export const Logo = () => {
   return (
     <div className="p-3 md: flex items-center">
-      <Image src="/download.png" height="40" width="40" alt="logo" />
+      <Image
+        src="/175637400_padded_logo.png"
+        height="40"
+        width="40"
+        alt="logo"
+      />
       <p className={cn("m-1", lobster.className)}>Note.it</p>
     </div>
   );
