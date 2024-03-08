@@ -1,10 +1,13 @@
 "use client";
 import { Navigation } from "@/app/(main)/_components/navigation";
+import { QuickNote } from "@/app/(main)/_components/quicknote";
 
-const MainLayout = ({ children }: { children: React.ReactNode }) => {
+const MainLayout = () => {
   return (
-    // <div className="h-screen w-screen">
-    <Navigation />
+    <div className="flex flex-row">
+      <Navigation />
+      <QuickNote />
+    </div>
   );
 };
 
