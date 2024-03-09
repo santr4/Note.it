@@ -5,6 +5,7 @@ import BookIcon from "@mui/icons-material/Book";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
 import Face2Icon from "@mui/icons-material/Face2";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export function Navigation() {
   return (
@@ -108,6 +109,18 @@ export function Navigation() {
               </svg>
             </div>
             Log Out
+          </div>
+          <div className="pt-40 flex flex-row">
+            <Avatar>
+              <AvatarImage src="https://github.com/santr4.png" />
+              <AvatarFallback>Aaranyak Santra</AvatarFallback>
+            </Avatar>
+            <div className="px-3 flex flex-col">
+              <p className="font-mono font-bold text-yellow-500">
+                Aaranyak Santra
+              </p>
+              <p className="text-teal-300">@santr4</p>
+            </div>
           </div>
         </nav>
       </div>
