@@ -10,7 +10,7 @@ function TextareaComponent() {
   };
   return (
     <div className="pt-40">
-      <Text mb="8px">Value: {value}</Text>
+      <Text mb="8px">Jot down some text: {value}</Text>
       <Textarea
         value={value}
         onChange={handleInputChange}
