@@ -16,7 +16,7 @@ const DocumentsPage = () => {
         <QuickNote />
         <TextareaComponent />
         <Button1 />
-        <h1 className="pt-24 font-semibold">Comments</h1>
+        <h1 className="pt-24 font-semibold underline">Comments</h1>
         <Comments />
       </div>
     </div>

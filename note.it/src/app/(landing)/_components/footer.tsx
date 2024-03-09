@@ -1,9 +1,13 @@
 // import { Logo } from "./logo";
 import { Button } from "@/components/ui/button";
+import ImageAvatars from "@/components/avatar";
 
 const Footer = () => {
   return (
     <div className="flex w-full bg-[#dfdddd] p-3">
+      <div className="flex pt-3.5">
+        <ImageAvatars />
+      </div>
       <div className="flex mt-3 space-x-4 justify-end ml-auto">
         <div className="flex">
           <Button size="sm">Privacy Policy</Button>
