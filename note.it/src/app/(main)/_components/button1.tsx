@@ -16,7 +16,7 @@ export const Button1 = () => {
       <IconButton aria-label="delete" size="sm">
         <DeleteIcon />
       </IconButton>
-      <Button>Dowload</Button>
+      <Button size="sm">Dowload</Button>
     </div>
   );
 };

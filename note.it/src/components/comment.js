@@ -13,7 +13,7 @@ export default class Comments extends Component {
     scriptEl.setAttribute("async", true);
     scriptEl.setAttribute("repo", "santr4/youtube-utterance-comments");
     scriptEl.setAttribute("issue-term", "url");
-    scriptEl.setAttribute("theme", "github-dark-orange");
+    scriptEl.setAttribute("theme", "github-light");
     this.commentBox.current.appendChild(scriptEl);
   }
 

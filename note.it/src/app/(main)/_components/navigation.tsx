@@ -89,7 +89,7 @@ export function Navigation() {
             </div>
             Log Out
           </div>
-          <div className="pt-40 flex flex-row">
+          <div className="pt-96 flex flex-row">
             <Avatar>
               <AvatarImage src="https://github.com/santr4.png" />
               <AvatarFallback>Aaranyak Santra</AvatarFallback>
