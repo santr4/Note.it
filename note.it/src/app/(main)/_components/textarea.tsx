@@ -9,7 +9,7 @@ function TextareaComponent() {
     setValue(inputValue);
   };
   return (
-    <div className="pt-40">
+    <div className="pt-16">
       <Text mb="8px">Jot down some text: {value}</Text>
       <Textarea
         value={value}

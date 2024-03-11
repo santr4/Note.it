@@ -8,6 +8,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export function Navigation() {
   const { data: session } = useSession();
@@ -31,7 +32,7 @@ export function Navigation() {
             <div className="grid place-items-center mr-4">
               <EditNoteIcon />
             </div>
-            Quick Note
+            <Link href="/documents">Quick Note</Link>
           </div>
           <div
             role="button"
