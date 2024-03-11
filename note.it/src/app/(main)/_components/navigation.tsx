@@ -6,8 +6,14 @@ import SaveAsIcon from "@mui/icons-material/SaveAs";
 import Face2Icon from "@mui/icons-material/Face2";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { signOut, useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 export function Navigation() {
+  const { data: session } = useSession();
+  if (session === null) {
+    redirect("/login");
+  }
   return (
     <>
       <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
@@ -87,7 +93,7 @@ export function Navigation() {
                 ></path>
               </svg>
             </div>
-            Log Out
+            <button onClick={() => signOut()}>Sign out</button>
           </div>
           <div className="pt-96 flex flex-row">
             <Avatar>
