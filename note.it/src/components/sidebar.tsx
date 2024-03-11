@@ -9,13 +9,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { QuickNote } from "./quicknote";
 
 export function Navigation() {
-  const { data: session } = useSession();
-  if (session === null) {
-    redirect("/login");
-  }
+  //   const { data: session } = useSession();
+  //   if (session === null) {
+  //     redirect("/login");
+  //   }
   return (
     <>
       <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
@@ -76,7 +75,7 @@ export function Navigation() {
             </div>
             Saved Notes
           </div>
-          <div
+          {/* <div
             role="button"
             className="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none"
           >
@@ -96,7 +95,7 @@ export function Navigation() {
               </svg>
             </div>
             <button onClick={() => signOut()}>Sign out</button>
-          </div>
+          </div> */}
           <div className="pt-96 flex flex-row">
             <Avatar>
               <AvatarImage src="https://github.com/santr4.png" />

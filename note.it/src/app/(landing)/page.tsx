@@ -15,7 +15,7 @@ const LandingPage = () => {
         <Pic />
       </div>
       <div className="h-full flex items-end justify-end">
-        <div className="flex flex-col w-full  ">
+        <div className="flex flex-col w-full">
           <Footer />
         </div>
       </div>
