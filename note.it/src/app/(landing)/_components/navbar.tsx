@@ -15,7 +15,7 @@ export const Navbar = () => {
       <Logo />
       <div className="mt-3.5 md:ml-auto md:justify-end justify-between gap-5 m-5 space-x-3">
         <Button variant="ghost" size="sm" className="ring-2">
-          <Link href="#">LogIn</Link>
+          <Link href="http://localhost:3000/login">LogIn</Link>
         </Button>
         <Button variant="ghost" size="sm" className="ring-2">
           <Link href="#">AboutUs</Link>
