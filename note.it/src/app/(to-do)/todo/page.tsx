@@ -1,4 +1,5 @@
 import { Navigation } from "@/components/sidebar";
+import Todo from "../_components/todolist";
 
 const TodoPage = () => {
   return (
@@ -6,8 +7,9 @@ const TodoPage = () => {
       <div>
         <Navigation />
       </div>
-      <div className="flex w-full justify-center">
-        <p className="pt-3 font-bold">To-do List</p>
+      <div className="flex flex-col px-96 max-w-[1300px] mx-auto w-full justify-center">
+        <p className="pt-3 font-bold pb-4">To-do List</p>
+        <Todo />
       </div>
     </div>
   );
