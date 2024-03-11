@@ -13,9 +13,6 @@ export const Navbar = () => {
   return (
     <div className={cn("md:flex", scrolled && "border-b shadow-sm")}>
       <Logo />
-      <div className="pt-2 ml-12">
-        <Switch />
-      </div>
       <div className="mt-3.5 md:ml-auto md:justify-end justify-between gap-5 m-5 space-x-3">
         <Button variant="ghost" size="sm" className="ring-2">
           <Link href="#">LogIn</Link>
