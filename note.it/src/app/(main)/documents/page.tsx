@@ -4,7 +4,6 @@ import { Navigation } from "@/app/(main)/_components/navigation";
 import { QuickNote } from "@/app/(main)/_components/quicknote";
 import TextareaComponent from "../_components/textarea";
 import { Button1 } from "../_components/button1";
-// import ActionAreaCard from "../_components/card";
 import Comments from "@/components/comment";
 import { signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";

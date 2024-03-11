@@ -26,7 +26,6 @@ export const QuickNote = () => {
         Use this template to write quick notes you can reference later and
         quickly create a rich document.
       </p>
-      <DatePickerDemo />
     </div>
   );
 };

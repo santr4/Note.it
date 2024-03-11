@@ -4,7 +4,7 @@ import ImageAvatars from "@/components/avatar";
 
 const Footer = () => {
   return (
-    <div className="flex w-full bg-[#dfdddd] p-3">
+    <div className="flex w-full bg-[#dfdddd] p-2">
       <div className="flex pt-3.5">
         <ImageAvatars />
       </div>

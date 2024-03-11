@@ -1,26 +1,23 @@
 // import { Navbar } from "./_components/navbar";
 import Heading from "./_components/heading";
+import { Navbar } from "./_components/navbar";
 import Pic from "./_components/pic";
 import Footer from "@/app/(landing)/_components/footer";
-import Stats from "@/app/(landing)/_components/stat";
 
 const LandingPage = () => {
   return (
-    <div className="h-full flex-col flex justify-center w-screen">
-      <div className="flex justify-center">
+    <div className="h-full flex flex-col w-full">
+      <Navbar />
+      <div className="flex justify-center w-full">
         <Heading />
       </div>
-      <div className="pt-10 mb-56">
+      <div className="flex justify-center items-center w-full">
         <Pic />
       </div>
-      <p className="flex mx-auto pb-5 text-purple-950 underline decoration-sky-600 md:decoration-blue-400">
-        Retention Analytics
-      </p>
-      <div className="flex flex-row px-96 mx-auto">
-        <Stats />
-      </div>
-      <div className="content-end mt-16">
-        <Footer />
+      <div className="h-full flex items-end justify-end">
+        <div className="flex flex-col w-full  ">
+          <Footer />
+        </div>
       </div>
     </div>
   );
