@@ -11,7 +11,7 @@ export default function Login(req: NextRequest) {
     redirect("/documents");
   }
   return (
-    <div className="flex flex-col h-screen w-screen bg-gradient-to-r from-violet-500 to-fuchsia-500">
+    <div className="flex flex-col h-screen w-screen">
       <p className="font-bold mx-auto pt-5">Login Page</p>
       <div className="flex flex-row mx-auto pt-20 gap-x-5">
         <Button onClick={() => signIn("github")}>Sign in with Github</Button>

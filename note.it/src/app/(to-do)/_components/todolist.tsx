@@ -1,5 +1,7 @@
 "use client";
+
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const Todo = () => {
   const [task, setTask] = useState("");
@@ -30,13 +32,21 @@ const Todo = () => {
           onChange={inputChange}
           placeholder="input a task"
         />
-        <button type="submit">Add task</button>
+        <Button type="submit" className="m-2" size="sm">
+          +
+        </Button>
       </form>
       <ul>
         {tasksArray.map((task, index) => (
           <li key={index}>
             {task}
-            <button onClick={() => handleDelete(index)}>Delete</button>
+            <Button
+              onClick={() => handleDelete(index)}
+              className="m-2"
+              size="sm"
+            >
+              -
+            </Button>
           </li>
         ))}
       </ul>
