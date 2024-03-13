@@ -7,7 +7,7 @@ const readingListPage = () => {
       <div>
         <Navigation />
       </div>
-      <div className="flex justify-center px-10 mx-auto pt-5 font-bold">
+      <div className="flex justify-center px-10 mx-auto pt-5 font-bold text-2xl">
         Bookshelf Chronicles: My Reading Journey
       </div>
     </div>

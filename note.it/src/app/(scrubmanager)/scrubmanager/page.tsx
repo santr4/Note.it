@@ -1,5 +1,6 @@
 "use client";
 import { Navigation } from "@/components/sidebar";
+import KanbanBoard from "@/app/(scrubmanager)/_components/KanbanBoard";
 
 const scrubManagerPage = () => {
   return (
@@ -7,8 +8,13 @@ const scrubManagerPage = () => {
       <div>
         <Navigation />
       </div>
-      <div className="flex justify-center px-10 mx-auto font-bold pt-5">
-        Scrubbing Task Master ={">"} Capture, Organize, Remember.
+      <div className="flex flex-col justify-start px-10 mx-auto font-bold pt-9">
+        <div className="text-2xl">
+          Scrubbing Task Master ={">"} Capture, Organize, Remember.
+        </div>
+        <div className="pt-60">
+          <KanbanBoard />
+        </div>
       </div>
     </div>
   );
