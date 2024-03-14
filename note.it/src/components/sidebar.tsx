@@ -87,7 +87,7 @@ export function Navigation() {
             </div>
             <button onClick={() => signOut()}>Sign out</button>
           </div> */}
-          <div className="pt-96 flex flex-row">
+          <div className="pt-96 mt-40 flex flex-row">
             <Avatar>
               <AvatarImage src="https://github.com/santr4.png" />
               <AvatarFallback>Aaranyak Santra</AvatarFallback>
