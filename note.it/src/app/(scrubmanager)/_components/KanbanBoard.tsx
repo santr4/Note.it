@@ -21,7 +21,8 @@ const KanbanBoard = () => {
         const title = e.active.data.current?.title ?? "";
         const index = e.active.data.current?.index ?? 0;
         const parent = e.active.data.current?.parent ?? "ToDo";
-        if (container === "ToDo") {
+
+        if (container === "To Do") {
           setTodoItems([...todoItems, { title }]);
         } else if (container === "Done") {
           setDoneItems([...doneItems, { title }]);
@@ -30,7 +31,7 @@ const KanbanBoard = () => {
         } else {
           setInProgressItems([...inProgressItems, { title }]);
         }
-        if (parent === "ToDo") {
+        if (parent === "To Do") {
           setTodoItems([
             ...todoItems.slice(0, index),
             ...todoItems.slice(index + 1),
@@ -54,7 +55,7 @@ const KanbanBoard = () => {
         <AddCard addCard={addNewCard} />
         <br />
         <Flex flex="3">
-          <KanbanLane title="ToDo" items={todoItems} />
+          <KanbanLane title="To Do" items={todoItems} />
           <KanbanLane title="In Progress" items={inProgressItems} />
           <KanbanLane title="Done" items={doneItems} />
           <KanbanLane title="Unassigned" items={uItems} />

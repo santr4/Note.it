@@ -29,7 +29,7 @@ export const QuickNote = () => {
       </h1>
       <p
         className={cn(
-          "flex justify-center pt-6 text-sky-800 font-bold text-2xl pb-5",
+          "flex justify-center pt-6 font-bold pb-5",
           font3.className
         )}
       >

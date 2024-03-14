@@ -23,7 +23,7 @@ const AddCard: React.FC<AddCardProps> = ({ addCard }) => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Enter card title"
-          marginRight="2"
+          marginRight="20"
         />
         <Button onClick={handleAddCard} className="rounded-full">
           Add Card
