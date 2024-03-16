@@ -1,4 +1,5 @@
 // import { Navbar } from "./_components/navbar";
+
 import Heading from "./_components/heading";
 import { Navbar } from "./_components/navbar";
 import Pic from "./_components/pic";
@@ -11,8 +12,11 @@ const LandingPage = () => {
       <div className="flex justify-center w-full">
         <Heading />
       </div>
-      <div className="flex justify-center items-center w-full">
+      <div className="flex flex-col justify-center items-center w-full">
         <Pic />
+        <p className="pt-6 font-bold">
+          Note.it is the connected workspace where better, faster work happens.
+        </p>
       </div>
       <div className="h-full flex items-end justify-end">
         <div className="flex flex-col w-full">
