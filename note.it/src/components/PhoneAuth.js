@@ -15,7 +15,7 @@ const PhoneAuth = () => {
   const [phone, setPhone] = useState("+91");
   const [hasFilled, setHasFilled] = useState(false);
   const [otp, setOtp] = useState("");
-  const router = useRouter(); // Initialize router instance
+  const router = useRouter();
   console.log("Router:", router);
 
   const generateRecaptcha = () => {
@@ -50,9 +50,7 @@ const PhoneAuth = () => {
           let user = result.user;
           console.log(user);
           alert("User signed in successfully");
-          //   router.push("/documents");
           window.location.href = "/documents";
-          // Redirect to the documents page
         })
         .catch((error) => {
           alert("User couldn't sign in (bad verification code?)");
