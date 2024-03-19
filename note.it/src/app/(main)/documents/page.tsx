@@ -2,11 +2,12 @@
 
 import { Navigation } from "@/app/(main)/_components/navigation";
 import { QuickNote } from "@/app/(main)/_components/quicknote";
-import TextareaComponent from "../_components/textarea";
-import { Button1 } from "../_components/button1";
+import TextareaComponent from "../_components/notes/textarea";
+import { Button1 } from "../_components/notes/button1";
 import Comments from "@/components/comment";
 import { signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
+import { Note } from "@/app/(main)/_components/notes/note";
 
 const DocumentsPage = () => {
   const { data: session } = useSession();
@@ -21,8 +22,7 @@ const DocumentsPage = () => {
       </div>
       <div className="flex flex-col max-w-[1000px] px-12 mx-auto w-full border-0 border-red-500">
         <QuickNote />
-        <TextareaComponent />
-        <Button1 />
+        <Note />
         <h1 className="pt-24 font-semibold underline">Comments</h1>
         <Comments />
       </div>

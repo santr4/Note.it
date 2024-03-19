@@ -3,11 +3,11 @@ import { ButtonGroup, Button, IconButton } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import { DeleteIcon } from "@chakra-ui/icons";
 
-export const Button1 = () => {
+export const Button1 = ({ handleSubmit }: { handleSubmit: () => {} }) => {
   return (
     <div className="flex flex-row mt-3 gap-3">
       <ButtonGroup size="sm" isAttached variant="outline">
-        <Button>Save</Button>
+        <Button onClick={handleSubmit}>Save</Button>
         <IconButton aria-label="Add to friends" icon={<AddIcon />} />
       </ButtonGroup>
       <ButtonGroup variant="outline" size="sm">
