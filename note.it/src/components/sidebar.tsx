@@ -66,6 +66,15 @@ export function Navigation() {
             </div>
             <Link href="/scrubmanager">Scrub Manager</Link>
           </div>
+          <div
+            role="button"
+            className="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none"
+          >
+            <div className="grid place-items-center mr-4">
+              <SaveAsIcon />
+            </div>
+            <Link href="/savednotes">Saved Notes</Link>
+          </div>
           {/* <div
             role="button"
             className="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none"
@@ -87,7 +96,7 @@ export function Navigation() {
             </div>
             <button onClick={() => signOut()}>Sign out</button>
           </div> */}
-          <div className="pt-96 mt-40 flex flex-row">
+          <div className="pt-80 mt-40 flex flex-row">
             <Avatar>
               <AvatarImage src="https://github.com/santr4.png" />
               <AvatarFallback>Aaranyak Santra</AvatarFallback>
