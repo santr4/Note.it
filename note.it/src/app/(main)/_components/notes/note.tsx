@@ -4,13 +4,14 @@ import { useState } from "react";
 import { db } from "@/app/config/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Note = () => {
   const [value, setValue] = useState("");
   const handleSubmit = async () => {
     try {
       // Add note to Firestore
-      await addDoc(collection(db, "notes"), {
+      const docRef = await addDoc(collection(db, "notes"), {
         content: value,
         timestamp: new Date(),
       });

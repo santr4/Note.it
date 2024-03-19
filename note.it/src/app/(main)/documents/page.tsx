@@ -8,6 +8,7 @@ import Comments from "@/components/comment";
 import { signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { Note } from "@/app/(main)/_components/notes/note";
+import { ToastContainer } from "react-toastify";
 
 const DocumentsPage = () => {
   const { data: session } = useSession();
@@ -23,6 +24,7 @@ const DocumentsPage = () => {
       <div className="flex flex-col max-w-[1000px] px-12 mx-auto w-full border-0 border-red-500">
         <QuickNote />
         <Note />
+        <ToastContainer />
         <h1 className="pt-24 font-semibold underline">Comments</h1>
         <Comments />
       </div>
