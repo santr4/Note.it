@@ -25,7 +25,7 @@ export const QuickNote = () => {
           font4.className
         )}
       >
-        Let Your Voice Be Heard!
+        Let Your Voice Be Heard
       </h1>
       <p
         className={cn(

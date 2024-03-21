@@ -5,6 +5,8 @@ import BookIcon from "@mui/icons-material/Book";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
 import Face2Icon from "@mui/icons-material/Face2";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+// import { CheckCircleIcon } from "@chakra-ui/icons";
+import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
@@ -71,7 +73,7 @@ export function Navigation() {
             className="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-blue-50 hover:bg-opacity-80 focus:bg-blue-50 focus:bg-opacity-80 active:bg-blue-50 active:bg-opacity-80 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 outline-none"
           >
             <div className="grid place-items-center mr-4">
-              <SaveAsIcon />
+              <IoIosArrowDropdownCircle />
             </div>
             <Link href="/savednotes">Saved Notes</Link>
           </div>
