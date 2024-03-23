@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Input, Flex } from "@chakra-ui/react";
 import { Button } from "@/components/ui/button";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "@/app/config/firebase";
 
 interface AddCardProps {
   addCard: (title: string) => void;
@@ -9,10 +11,19 @@ interface AddCardProps {
 const AddCard: React.FC<AddCardProps> = ({ addCard }) => {
   const [title, setTitle] = useState("");
 
-  const handleAddCard = () => {
+  const handleAddCard = async () => {
     if (title.trim() !== "") {
-      addCard(title);
-      setTitle("");
+      try {
+        const docRef = await addDoc(collection(db, "uItems"), { title });
+        if (docRef.id) {
+          addCard(title);
+          setTitle("");
+        } else {
+          console.error("Error adding document: Document ID not found");
+        }
+      } catch (error) {
+        console.error("Error adding document: ", error);
+      }
     }
   };
 

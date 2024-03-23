@@ -1,6 +1,7 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { useDroppable } from "@dnd-kit/core";
 import KanbanCard from "./KanbanCard";
+import NonNullableCard from "./types";
 
 interface Cards {
   title: string;
@@ -8,7 +9,7 @@ interface Cards {
 
 interface KanbanLaneProps {
   title: string;
-  items: Cards[];
+  items: NonNullableCard[];
 }
 
 const KanbanLane = ({ title, items }: KanbanLaneProps) => {
@@ -27,7 +28,12 @@ const KanbanLane = ({ title, items }: KanbanLaneProps) => {
         className="bg-violet-200"
       >
         {items.map(({ title: cardTitle }, key) => (
-          <KanbanCard title={cardTitle} key={key} index={key} parent={title} />
+          <KanbanCard
+            title={cardTitle || ""}
+            key={key}
+            index={key}
+            parent={title}
+          />
         ))}
       </Flex>
     </Flex>
