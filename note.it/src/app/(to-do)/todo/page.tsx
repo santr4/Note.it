@@ -7,7 +7,7 @@ const TodoPage = () => {
       <div>
         <Navigation />
       </div>
-      <div className="flex flex-col px-96 max-w-[1300px] mx-auto w-full justify-start pt-24">
+      <div className="flex flex-col px-96 max-w-[1300px] mx-auto w-full justify-start pt-12">
         <p className="pb-8 font-bold text-2xl">
           Task List: Stay organized and productive
         </p>

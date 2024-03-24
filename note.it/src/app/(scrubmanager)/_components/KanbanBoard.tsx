@@ -5,7 +5,13 @@ import { DndContext, rectIntersection } from "@dnd-kit/core";
 import { Card } from "./types";
 import NonNullableCard from "./types";
 import AddCard from "./AddCard";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 import { db } from "@/app/config/firebase";
 
 const KanbanBoard = () => {
@@ -83,9 +89,102 @@ const KanbanBoard = () => {
     fetchItems();
   }, []);
 
-  const addNewCard = (title: string) => {
-    setuItems([...uItems, { title }]);
+  const addNewCard = async (title: string) => {
+    try {
+      const docRef = await addDoc(collection(db, "uItems"), { title });
+      if (docRef.id) {
+        setuItems([...uItems, { title }]);
+      } else {
+        console.error("Error adding document: Document ID not found");
+      }
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
   };
+
+  const updateFirestoreOnDragEnd = async (
+    title: string,
+    newIndex: number,
+    newParent: string
+  ) => {
+    try {
+      // Delete the card from the previous collection
+      let prevCollectionName = "";
+      switch (title) {
+        case "To Do":
+          prevCollectionName = "todoItems";
+          break;
+        case "In Progress":
+          prevCollectionName = "inProgressItems";
+          break;
+        case "Done":
+          prevCollectionName = "doneItems";
+          break;
+        default:
+          prevCollectionName = "uItems";
+      }
+
+      const prevCollectionRef = collection(db, prevCollectionName);
+      const querySnapshot = await getDocs(prevCollectionRef);
+      querySnapshot.forEach(async (doc) => {
+        if (doc.data().title === title) {
+          await deleteDoc(doc.ref);
+        }
+      });
+
+      // Add the card to the new collection
+      let newCollectionName = "";
+      switch (newParent) {
+        case "To Do":
+          newCollectionName = "todoItems";
+          break;
+        case "In Progress":
+          newCollectionName = "inProgressItems";
+          break;
+        case "Done":
+          newCollectionName = "doneItems";
+          break;
+        default:
+          newCollectionName = "uItems";
+      }
+      await addDoc(collection(db, newCollectionName), { title });
+
+      // Update state accordingly
+      switch (newParent) {
+        case "To Do":
+          setTodoItems([...todoItems, { title }]);
+          break;
+        case "In Progress":
+          setInProgressItems([...inProgressItems, { title }]);
+          break;
+        case "Done":
+          setDoneItems([...doneItems, { title }]);
+          break;
+        default:
+          setuItems([...uItems, { title }]);
+      }
+
+      // Remove the card from the previous state
+      switch (title) {
+        case "To Do":
+          setTodoItems(todoItems.filter((item) => item.title !== title));
+          break;
+        case "In Progress":
+          setInProgressItems(
+            inProgressItems.filter((item) => item.title !== title)
+          );
+          break;
+        case "Done":
+          setDoneItems(doneItems.filter((item) => item.title !== title));
+          break;
+        default:
+          setuItems(uItems.filter((item) => item.title !== title));
+      }
+    } catch (error) {
+      console.error("Error updating Firestore: ", error);
+    }
+  };
+
   return (
     <DndContext
       collisionDetection={rectIntersection}
@@ -96,31 +195,13 @@ const KanbanBoard = () => {
         const parent = e.active.data.current?.parent ?? "ToDo";
 
         if (container === "To Do") {
-          setTodoItems([...todoItems, { title }]);
+          updateFirestoreOnDragEnd(title, index, "To Do");
         } else if (container === "Done") {
-          setDoneItems([...doneItems, { title }]);
+          updateFirestoreOnDragEnd(title, index, "Done");
         } else if (container === "Unassigned") {
-          setuItems([...uItems, { title }]);
+          updateFirestoreOnDragEnd(title, index, "Unassigned");
         } else {
-          setInProgressItems([...inProgressItems, { title }]);
-        }
-        if (parent === "To Do") {
-          setTodoItems([
-            ...todoItems.slice(0, index),
-            ...todoItems.slice(index + 1),
-          ]);
-        } else if (parent === "Done") {
-          setDoneItems([
-            ...doneItems.slice(0, index),
-            ...doneItems.slice(index + 1),
-          ]);
-        } else if (parent === "Unassigned") {
-          setuItems([...uItems.slice(0, index), ...uItems.slice(index + 1)]);
-        } else {
-          setInProgressItems([
-            ...inProgressItems.slice(0, index),
-            ...inProgressItems.slice(index + 1),
-          ]);
+          updateFirestoreOnDragEnd(title, index, "In Progress");
         }
       }}
     >
