@@ -2,9 +2,9 @@
 
 import { Navigation } from "@/app/(main)/_components/navigation";
 import { QuickNote } from "@/app/(main)/_components/quicknote";
-import TextareaComponent from "../_components/notes/textarea";
-import { Button1 } from "../_components/notes/button1";
-import Comments from "@/components/comment";
+// import TextareaComponent from "../_components/notes/textarea";
+// import { Button1 } from "../_components/notes/button1";
+// import Comments from "@/components/comment";
 import { signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { Note } from "@/app/(main)/_components/notes/note";
@@ -25,8 +25,8 @@ const DocumentsPage = () => {
         <QuickNote />
         <Note />
         <ToastContainer />
-        <h1 className="pt-24 font-semibold underline">Comments</h1>
-        <Comments />
+        {/* <h1 className="pt-24 font-semibold underline">Comments</h1>
+        <Comments /> */}
       </div>
     </div>
   );
