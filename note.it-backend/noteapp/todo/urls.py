@@ -12,4 +12,7 @@ urlpatterns = [
         views.get_todos,
         name="get_todos",
     ),
+    # url(r"delete_todos/(?P<task_id>[-\w]+)/$", views.delete_todos, name="delete_todos"),
+    url(r"delete-todos/$", views.delete_todos, name="delete_todos"),
+    # path("api/delete_todos/<str:task_id>", views.delete_todos, name="delete_todos"),
 ]

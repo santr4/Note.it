@@ -80,7 +80,7 @@ WSGI_APPLICATION = "noteapp.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "test2",
+        "NAME": "test3",
         "USER": "aaranyak",
         "PASSWORD": "160903belda",
         "HOST": "localhost",
@@ -134,3 +134,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-request-info",
+)

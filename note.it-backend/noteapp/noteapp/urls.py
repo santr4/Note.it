@@ -18,6 +18,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path as url
 
+# from rest_framework.routers import DefaultRouter
+
+# router = DefaultRouter()
+# router.register()
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     url(r"^api/", include("todo.urls")),

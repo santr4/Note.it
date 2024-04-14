@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+
 // import { db } from "@/app/config/firebase";
 // import {
 //   addDoc,
@@ -12,6 +13,7 @@ import { Button } from "@/components/ui/button";
 //   getDocs,
 //   doc,
 // } from "firebase/firestore";
+
 import axios from "axios";
 
 // const Todo = () => {
@@ -117,7 +119,7 @@ const Todo = () => {
         };
         await axios.post("http://localhost:8000/api/add_todos/", sendObj); // Add todo item to Django backend
         setTasksArray((prevTasks: any) => [...prevTasks, sendObj]); // Add new task to tasksArray state
-        setTask(""); // Clear input field
+        setTask("");
       } catch (error) {
         console.error("Error adding task:", error);
       }
@@ -126,7 +128,10 @@ const Todo = () => {
 
   const handleDelete = async (taskId: string) => {
     try {
-      await axios.delete(`http://localhost:8000/api/todos/${taskId}/`); // Delete todo item from Django backend
+      const headers = { "x-request-info": taskId };
+      await axios.delete(`http://localhost:8000/api/delete-todos/`, {
+        headers: headers,
+      }); // Delete todo item from Django backend
       fetchData(); // Refresh todo list
     } catch (error) {
       console.error("Error deleting task:", error);
@@ -150,18 +155,13 @@ const Todo = () => {
         {tasksArray.map((task: any, index: any) => (
           <li key={index}>
             <div className="w-full flex justify-between my-5 border border-slate-500 px-2 py-3">
+              <div>{task.title}</div>
               <div>
-                {task.title} {/* Assuming task has a 'title' property */}
-              </div>
-              <div>
-                <div>
-                  {task.completed.toString()}
-                  {/* Assuming task has a 'title' property */}
-                </div>
+                <div>{task.completed.toString()}</div>
                 <div>{task.created_at}</div>
               </div>
               <Button
-                onClick={() => handleDelete(index.toString())} // Assuming task has an 'id' property
+                onClick={() => handleDelete(task.taskid)} // Assuming task has an 'id' property
                 className="m-2"
                 size="sm"
               >
@@ -174,4 +174,5 @@ const Todo = () => {
     </div>
   );
 };
+
 export default Todo;
