@@ -21,7 +21,7 @@ export const QuickNote = () => {
     <div className="w-full flex flex-col">
       <h1
         className={cn(
-          "flex flex-row text-stone-800 underline decoration-dashed w-auto justify-center pt-3 font-bold text-2xl",
+          "flex flex-row text-stone-800 w-auto justify-center pt-3 font-black text-2xl",
           font4.className
         )}
       >

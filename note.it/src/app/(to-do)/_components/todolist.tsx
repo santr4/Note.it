@@ -146,6 +146,7 @@ const Todo = () => {
           value={task}
           onChange={inputChange}
           placeholder="input a task"
+          className="p-2 border border-zinc-800"
         />
         <Button type="submit" className="m-2" size="sm">
           +

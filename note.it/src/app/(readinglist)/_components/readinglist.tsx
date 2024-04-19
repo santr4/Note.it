@@ -110,19 +110,19 @@ const ReadingList = () => {
           placeholder="input title of book"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="m-2"
+          className="m-2 border border-zinc-600 p-2"
         />
         <input
           type="text"
           placeholder="input author of book"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
-          className="m-2"
+          className="m-2 border border-zinc-600 p-2"
         />
         <Button onClick={addBook}>Add Book</Button>
-        <ul>
+        <ul className="p-4 m-2">
           {books.map((book, index) => (
-            <li key={index} className="p-2">
+            <li key={index} className="p-2 border border-zinc-900 m-4">
               <strong>{book.title}</strong> by {book.author}
               <Button onClick={() => removeBook(index)} className="m-3">
                 Delete
