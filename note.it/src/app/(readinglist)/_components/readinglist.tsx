@@ -64,7 +64,7 @@ const ReadingList = () => {
         // } catch (e) {
         //   console.error("Error adding document: ", e);
         // }
-        await axios.post("http://localhost:8000/api/add_readinglist", newBook);
+        await axios.post("http://localhost:8000/api/add_readinglist/", newBook);
         setBooks([...books, newBook]);
         setTitle("");
         setAuthor("");
