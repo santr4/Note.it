@@ -1,12 +1,11 @@
 "use client";
 
-import type { NextRequest } from "next/server";
 import { signIn, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import PhoneAuth from "@/components/PhoneAuth";
 
-export default function Login(req: NextRequest) {
+export default function Login(req: any) {
   const { data: session } = useSession();
   if (session) {
     redirect("/documents");
